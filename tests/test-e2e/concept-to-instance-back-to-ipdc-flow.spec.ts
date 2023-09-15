@@ -62,7 +62,7 @@ test.describe('Concept to Instance back to IPDC Flow', () => {
         //TODO LPDC-680: add test to verify in detail all fields of the concept
     });
 
-    for (let i = 0; i < 1; i++) { //TODO LPDC-680: for the 1, use a variable which is to be set when running the end 2 end tests (which also then sets the number of workers and fully parallel at the command line)
+    for (let i = 0; i < 1000; i++) { //TODO LPDC-680: for the 1, use a variable which is to be set when running the end 2 end tests (which also then sets the number of workers and fully parallel at the command line)
         test(`${i + 1} _ Create instance from concept and edit fully and send to IPDC and verify readonly version fully`, async () => {
             await homePage.productOfDienstToevoegenButton.click();
 
