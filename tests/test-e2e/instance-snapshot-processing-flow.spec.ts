@@ -5,6 +5,8 @@ import { UJeModal } from './modals/u-je-modal';
 import { first_row } from './components/table';
 import { InstantieDetailsPage } from './pages/instantie-details-page';
 import { IpdcStub } from './components/ipdc-stub';
+import {InstanceSnapshotLdesStub} from "./components/instance-snapshot-ldes-stub";
+import {v4 as uuid} from 'uuid';
 
 test.describe.configure({ mode: 'parallel' });
 
@@ -94,6 +96,12 @@ test.describe('Instance Snapshot to Instance and published to IPDC Flow', () => 
             expect.objectContaining({ "@type": "http://www.w3.org/2001/XMLSchema#dateTime", "@value": "2024-02-14T13:42:12.357Z" }),
             expect.objectContaining({ "@type": "http://www.w3.org/2001/XMLSchema#dateTime", "@value": "2024-02-15T14:59:30.236Z" }));
     });
+
+    test.skip('Verify an instance can be archived and again unarchived', async () => {
+        const instanceId = uuid();
+        const instanceSnapshot = await InstanceSnapshotLdesStub.createSnapshot(instanceId, false);
+
+    })
 
     async function verifyInstanceInUI(title: string, titleInEnglish: string | undefined, description: string, descriptionInEnglish: string | undefined) {
         await homePage.expectToBeVisible();
